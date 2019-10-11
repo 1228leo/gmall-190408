@@ -19,6 +19,8 @@
         <module>gmall-common</module>
         <module>gmall-moke</module>
         <module>gmall-logger</module>
+        <module>gmall-realtime</module>
+        <module>dw-chart</module>
     </modules>
 
     <properties>
