@@ -5,7 +5,7 @@ import java.util.Date
 
 import com.alibaba.fastjson.{JSON, JSONObject}
 import com.atguigu.bean.StartUpLog
-import com.atguigu.contants.GmallContants
+import com.atguigu.contants.GmallConstants
 import com.atguigu.handle.DAUHandle
 import com.atguigu.utils.MyKafkaUtil
 import org.apache.hadoop.conf.Configuration
@@ -20,7 +20,7 @@ object RealTimeApp {
 
         val ssc = new StreamingContext(conf, Seconds(5))
 
-        val kafkaStreaming: InputDStream[(String, String)] = MyKafkaUtil.getKafkaStream(ssc, Set(GmallContants.GMALL_STARTUP))
+        val kafkaStreaming: InputDStream[(String, String)] = MyKafkaUtil.getKafkaStream(ssc, Set(GmallConstants.GMALL_STARTUP))
         val sdf = new SimpleDateFormat("yyyy-MM-dd HH")
         val startUpLogDStream: DStream[StartUpLog] = kafkaStreaming.map {
             case (k, v) => {
